@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ClerkProvider } from "@shared_ui/providers/ClerkProvider";
+import { NextUIProvider } from "@shared_ui/providers/NextUiProvider";
 
 export const metadata: Metadata = {
   title: "Kannu Mandora Blogs | Tech Enthusiast",
@@ -12,10 +14,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body>
+          <NextUIProvider>
+            {children}
+          </NextUIProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
