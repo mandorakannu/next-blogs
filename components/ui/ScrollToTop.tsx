@@ -9,8 +9,6 @@ export const ScrollToTop = () => {
         const handleScroll = (): void => {
             const scrollY = Math.floor(window.scrollY);
             const height = Math.floor(window.document.body.offsetHeight - window.innerHeight);
-            console.log("Scroll Y: ", scrollY);
-            console.log("height: ", height);
             setValue(Math.round(scrollY / (height!) * 100));
         }
         window.addEventListener("scroll", () => {
