@@ -70,7 +70,7 @@ export const Footer = () => {
                     <div className="flex flex-col items-center justify-center w-full py-4 mt-12 border-t border-slate-200 md:flex-row md:justify-between">
                         <p className="block mb-4 text-sm text-center text-slate-500 md:mb-0">
                             Copyright © {new Date().getFullYear()}
-                            <Link href={process.env.PORTFOLIO || "https://mandorakannu.xyz/"} className='uppercase hover:text-primary-400'> Kannu Mandora</Link>. All
+                            <Link href={process.env.NEXT_PUBLIC_PORTFOLIO || "https://mandorakannu.xyz/"} className='uppercase hover:text-primary-400'> Kannu Mandora</Link>. All
                             Rights Reserved.
                         </p>
                         <div className="flex gap-4 text-slate-600 sm:justify-center">
