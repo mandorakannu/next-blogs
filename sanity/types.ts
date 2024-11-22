@@ -392,7 +392,7 @@ export type AUTHOR_QUERYResult = Array<{
   }>;
 }>;
 // Variable: UNIQUE_POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body[], publishedAt, categories[]->{_id, title, slug}}
+// Query: *[_type == "post" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body[]->{text}, publishedAt, categories[]->{_id, title, slug}}
 export type UNIQUE_POST_QUERYResult = {
   _id: string;
   title: string | null;
@@ -424,36 +424,7 @@ export type UNIQUE_POST_QUERYResult = {
       _type: "image";
     } | null;
   } | null;
-  body: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
-    listItem?: "bullet";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
-    _key: string;
-  }> | null;
+  body: Array<null> | null;
   publishedAt: string | null;
   categories: Array<{
     _id: string;
@@ -550,7 +521,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"post\" && defined(slug.current)][0...12]{\n  _id, title, slug, author->{_id, name, image}, mainImage, publishedAt, categories[]->{_id, title, slug}, body[0]\n}": POSTS_QUERYResult;
     "*[_type == \"author\"]": AUTHOR_QUERYResult;
-    "*[_type == \"post\" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body[], publishedAt, categories[]->{_id, title, slug}}": UNIQUE_POST_QUERYResult;
+    "*[_type == \"post\" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body[]->{text}, publishedAt, categories[]->{_id, title, slug}}": UNIQUE_POST_QUERYResult;
     "*[_type == \"post\"]{\n  _id, title, slug, author->{_id, name, image}, mainImage, publishedAt, categories[]->{_id, title, slug}, body[0]\n}": ALL_POSTS_QUERYResult;
     "*[_type == \"category\"]": CATEGORIES_QUERYResult;
   }
