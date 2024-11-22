@@ -4,7 +4,8 @@ import { Oswald } from "next/font/google"
 
 const font = Oswald({
     display: "swap",
-    weight: ["200", "300", "400", "500", "600", "700"]
+    weight: ["200", "300", "400", "500", "600", "700"],
+    subsets: ["latin", "latin-ext"],
 })
 
 export const Header = () => {

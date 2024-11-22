@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider } from "@shared_ui/providers/ClerkProvider";
 import { NextUIProvider } from "@shared_ui/providers/NextUiProvider";
-import {Karla} from "next/font/google"
+import { Karla } from "next/font/google"
 
 const font = Karla({
-    weight: ["200", "300","400","500","600","700"],
-    display: 'swap',
+  weight: ["200", "300", "400", "500", "600", "700"],
+  display: 'swap',
+  subsets: ["latin", 'latin-ext'],
 })
 export const metadata: Metadata = {
   title: "Kannu Mandora Blogs | Tech Enthusiast",

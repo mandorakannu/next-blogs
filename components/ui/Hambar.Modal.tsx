@@ -1,16 +1,16 @@
 "use client";
-
+import { useState } from "react";
 import { Link } from "@nextui-org/react";
 import { CiSearch } from "react-icons/ci";
 import { HeaderModal } from "./Header.Modal";
-
+import { CustomDrawer } from "@shared_ui/Nav/Drawer";
 
 export const Hamburger = () => {
-
+    const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-            <div className="flex sm:justify-evenly max-sm:justify-center items-center gap-8 sm:border-y-2 sm:border-gray-500 max-sm:border-b-2 max-sm:border-black py-3 max-sm:mx-10 sm:mx-20">
-                <div className="flex flex-col justify-center items-center gap-1 group">
+            <div className="flex sm:justify-evenly max-sm:justify-center items-center gap-8 sm:border-y-2 sm:border-gray-500 max-sm:border-b-2 max-sm:border-black py-3 max-sm:mx-10 sm:mx-20 mb-10">
+                <div className="flex flex-col justify-center items-center gap-1 group" onClick={() => setIsOpen(!isOpen)}>
                     <div className="w-8 h-1 bg-black group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer"></div>
                     <div className="w-8 h-1 bg-black group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer"></div>
                     <div className="w-8 h-1 bg-black group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer"></div>
@@ -24,6 +24,7 @@ export const Hamburger = () => {
                 </ul>
                 <CiSearch className="text-3xl cursor-pointer" />
                 <div className="sm:hidden"><HeaderModal /></div>
+                <CustomDrawer isOpen={isOpen} onOpenChange={setIsOpen}></CustomDrawer>
             </div>
         </>
     );
