@@ -1,0 +1,74 @@
+[
+  [
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/mandorakannu/"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/mandorakannu"
+    },
+    {
+      "name": "Linkedin",
+      "url": "https://www.linkedin.com/in/mandorakannu/"
+    },
+    {
+      "name": "Github",
+      "url": "https://github.com/mandorakannu"
+    }
+  ],
+  [
+    {
+      "name": "Overview",
+      "url": "/"
+    },
+    {
+      "name": "Features",
+      "url": "/features"
+    },
+    {
+      "name": "Solutions",
+      "url": "/solutions"
+    },
+    {
+      "name": "Tutorials",
+      "url": "/tutorials"
+    }
+  ],
+  [
+    {
+      "name": "About Us",
+      "url": "/about"
+    },
+    {
+      "name": "Careers",
+      "url": "/careers"
+    },
+    {
+      "name": "Press",
+      "url": "/press"
+    },
+    {
+      "name": "News",
+      "url": "/news"
+    }
+  ],
+  [
+    {
+      "name": "Blog",
+      "url": "/blog"
+    },
+    {
+      "name": "Newsletter",
+      "url": "/newsletter"
+    },
+    {
+      "name": "Events",
+      "url": "/events"
+    },
+    {
+      "name": "Help Center",
+      "url": "/help"
+    }
+  ]
+]
