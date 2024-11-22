@@ -9,7 +9,7 @@ export const Hamburger = () => {
 
     return (
         <>
-            <div className="flex sm:justify-evenly max-sm:justify-center items-center gap-8 sm:border-y-2 sm:border-gray-500 max-sm:border-b-2 max-sm:border-black pb-4 max-sm:mx-10 sm:mx-20">
+            <div className="flex sm:justify-evenly max-sm:justify-center items-center gap-8 sm:border-y-2 sm:border-gray-500 max-sm:border-b-2 max-sm:border-black py-3 max-sm:mx-10 sm:mx-20">
                 <div className="flex flex-col justify-center items-center gap-1 group">
                     <div className="w-8 h-1 bg-black group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer"></div>
                     <div className="w-8 h-1 bg-black group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer"></div>
