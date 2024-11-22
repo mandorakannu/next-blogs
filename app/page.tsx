@@ -1,6 +1,7 @@
 import { Hamburger } from "@ui/Hambar.Modal";
 import { Header } from "@shared_ui/Nav/Header";
 import { ScrollToTop } from "@ui/ScrollToTop";
+import { FeaturedPost } from "@/components/ui/blogs/featuredPost";
 
 export default async function Home() {
   return (
@@ -8,6 +9,7 @@ export default async function Home() {
       <Header />
       <Hamburger />
       <ScrollToTop />
+      <FeaturedPost/>
     </>
   )
 }

@@ -391,12 +391,39 @@ export type AUTHOR_QUERYResult = Array<{
     _key: string;
   }>;
 }>;
-// Variable: POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{  _id, title, slug, body, author, mainImage, publishedAt}
-export type POST_QUERYResult = {
+// Variable: UNIQUE_POST_QUERY
+// Query: *[_type == "post" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body[], publishedAt, categories[]->{_id, title, slug}}
+export type UNIQUE_POST_QUERYResult = {
   _id: string;
   title: string | null;
   slug: Slug | null;
+  mainImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  author: {
+    _id: string;
+    name: string | null;
+    image: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+  } | null;
   body: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -427,25 +454,12 @@ export type POST_QUERYResult = {
     _type: "image";
     _key: string;
   }> | null;
-  author: {
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: "author";
-  } | null;
-  mainImage: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
-  } | null;
   publishedAt: string | null;
+  categories: Array<{
+    _id: string;
+    title: string | null;
+    slug: Slug | null;
+  }> | null;
 } | null;
 // Variable: ALL_POSTS_QUERY
 // Query: *[_type == "post"]{  _id, title, slug, author->{_id, name, image}, mainImage, publishedAt, categories[]->{_id, title, slug}, body[0]}
@@ -536,7 +550,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"post\" && defined(slug.current)][0...12]{\n  _id, title, slug, author->{_id, name, image}, mainImage, publishedAt, categories[]->{_id, title, slug}, body[0]\n}": POSTS_QUERYResult;
     "*[_type == \"author\"]": AUTHOR_QUERYResult;
-    "*[_type == \"post\" && slug.current == $slug][0]{\n  _id, title, slug, body, author, mainImage, publishedAt\n}": POST_QUERYResult;
+    "*[_type == \"post\" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body[], publishedAt, categories[]->{_id, title, slug}}": UNIQUE_POST_QUERYResult;
     "*[_type == \"post\"]{\n  _id, title, slug, author->{_id, name, image}, mainImage, publishedAt, categories[]->{_id, title, slug}, body[0]\n}": ALL_POSTS_QUERYResult;
     "*[_type == \"category\"]": CATEGORIES_QUERYResult;
   }
