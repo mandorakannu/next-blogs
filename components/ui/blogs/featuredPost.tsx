@@ -7,7 +7,7 @@ import { UNIQUE_POST_QUERY } from "@/sanity/lib/queries";
 
 export const FeaturedPost = async () => {
   const post = await client.fetch(UNIQUE_POST_QUERY, {
-    slug: process.env.FEATURED_POST,
+    slug: process.env.FEATURED_POST || "how-i-became-a-blogger",
   });
   const { title, mainImage, author, publishedAt, body, categories } = post!;
 

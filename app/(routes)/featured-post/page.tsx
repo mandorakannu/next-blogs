@@ -7,7 +7,7 @@ import { urlFor } from "@/sanity/lib/image";
 
 export default async function FeaturedPost() {
   const post = await client.fetch(UNIQUE_POST_QUERY, {
-    slug: process.env.FEATURED_POST,
+    slug: process.env.FEATURED_POST || "how-i-became-a-blogger",
   });
   const { title, mainImage, author, publishedAt, body, categories, metaText } =
     post!;
