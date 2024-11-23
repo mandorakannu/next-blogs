@@ -17,8 +17,8 @@ export default async function FeaturedPost() {
       <Image
         src={urlFor(mainImage!.asset!._ref).url() as string}
         alt={mainImage!.alt!}
-        className="w-1/2 h-1/2 object-cover my-6"
-        width={1500}
+        className="my-6"
+        width={800}
         height={500}
       />
       <div className="prose mx-auto">

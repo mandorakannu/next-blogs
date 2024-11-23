@@ -3,5 +3,5 @@ export default function FeaturedLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <section>{children}</section>;
+  return <section className="px-4">{children}</section>;
 }
