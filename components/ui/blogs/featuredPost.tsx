@@ -46,7 +46,7 @@ export const FeaturedPost = async () => {
           {categories![0]!.title!}
         </Link>
         <Link
-          href=""
+          href="/featured-post"
           className="text-4xl mb-6 uppercase hover:underline underline-offset-2 font-bold text-center"
         >
           {title}

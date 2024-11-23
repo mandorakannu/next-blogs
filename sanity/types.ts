@@ -102,6 +102,7 @@ export type Post = {
     [internalGroqTypeReferenceTo]?: "category";
   }>;
   publishedAt?: string;
+  metaText?: string;
   body?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -392,7 +393,7 @@ export type AUTHOR_QUERYResult = Array<{
   }>;
 }>;
 // Variable: UNIQUE_POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body, publishedAt, categories[]->{_id, title, slug}}
+// Query: *[_type == "post" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body, publishedAt, metaText, categories[]->{_id, title, slug}}
 export type UNIQUE_POST_QUERYResult = {
   _id: string;
   title: string | null;
@@ -455,6 +456,7 @@ export type UNIQUE_POST_QUERYResult = {
     _key: string;
   }> | null;
   publishedAt: string | null;
+  metaText: string | null;
   categories: Array<{
     _id: string;
     title: string | null;
@@ -550,7 +552,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"post\" && defined(slug.current)][0...12]{\n  _id, title, slug, author->{_id, name, image}, mainImage, publishedAt, categories[]->{_id, title, slug}, body[0]\n}": POSTS_QUERYResult;
     "*[_type == \"author\"]": AUTHOR_QUERYResult;
-    "*[_type == \"post\" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body, publishedAt, categories[]->{_id, title, slug}}": UNIQUE_POST_QUERYResult;
+    "*[_type == \"post\" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body, publishedAt, metaText, categories[]->{_id, title, slug}}": UNIQUE_POST_QUERYResult;
     "*[_type == \"post\"]{\n  _id, title, slug, author->{_id, name, image}, mainImage, publishedAt, categories[]->{_id, title, slug}, body[0]\n}": ALL_POSTS_QUERYResult;
     "*[_type == \"category\"]": CATEGORIES_QUERYResult;
   }

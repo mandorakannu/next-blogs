@@ -525,6 +525,13 @@
         },
         "optional": true
       },
+      "metaText": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "body": {
         "type": "objectAttribute",
         "value": {
