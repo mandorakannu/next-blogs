@@ -7,6 +7,7 @@ import { Hamburger } from "@ui/Hambar.Modal";
 import { Header } from "@shared_ui/Nav/Header";
 import { ScrollToTop } from "@ui/ScrollToTop";
 import { Footer } from "@shared_ui/Footer";
+import { ChakraProvider } from "@shared_ui/providers/ChakraProvider";
 
 const font = Karla({
   weight: ["200", "300", "400", "500", "600", "700"],
@@ -26,6 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
+      <ChakraProvider>
       <html lang="en">
         <body className={font.className}>
           <NextUIProvider>
@@ -37,6 +39,7 @@ export default function RootLayout({
           </NextUIProvider>
         </body>
       </html>
+      </ChakraProvider>
     </ClerkProvider>
   );
 }
