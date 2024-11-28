@@ -1,3 +1,4 @@
+"use client";
 import {
   DrawerBackdrop,
   DrawerBody,
@@ -10,6 +11,7 @@ import {
 import { Image } from "@nextui-org/react";
 import { SocialMedia } from "./SocialMedia";
 import Link from "next/link";
+import {useWindowSize} from "@uidotdev/usehooks"
 
 export const Drawer = ({
   isOpen,
@@ -18,10 +20,11 @@ export const Drawer = ({
   isOpen: boolean;
   handleFxn: () => any;
 }) => {
+  const {width} =  useWindowSize();
   return (
     <DrawerRoot
       key={"end"}
-      placement={window.innerWidth > 768 ? "start" : "bottom"}
+      placement={width! > 768 ? "start" : "bottom"}
       open={isOpen}
       onOpenChange={handleFxn}
     >

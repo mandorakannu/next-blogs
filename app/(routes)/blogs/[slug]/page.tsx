@@ -5,9 +5,7 @@ import { UNIQUE_POST_QUERY } from "@/sanity/lib/queries";
 
 export default async function UniqueBlog({
   params,
-}: {
-  params: { slug: string };
-}) {
+}: Props) {
   const { slug } = await params;
   const post = await client.fetch(UNIQUE_POST_QUERY, { slug });
 
@@ -28,16 +26,13 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
-  const slug = (await params).slug;
+  const { slug } = await params;
 
   // fetch data
-  const product = await client.fetch(UNIQUE_POST_QUERY, { slug });
-
-  // optionally access and extend (rather than replace) parent metadata
-  // const previousImages = (await parent).openGraph?.images || []
+  const data = await client.fetch(UNIQUE_POST_QUERY, { slug });
 
   return {
-    title: product!.title,
-    description: product!.metaText,
+    title: data!.title,
+    description: data!.metaText,
   };
 }
