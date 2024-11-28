@@ -21,7 +21,7 @@ export const Drawer = ({
   return (
     <DrawerRoot
       key={"end"}
-      placement={"end"}
+      placement={window.innerWidth > 768 ? "start" : "bottom"}
       open={isOpen}
       onOpenChange={handleFxn}
     >
