@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { PortableText } from "next-sanity";
 import { urlFor } from "@/sanity/lib/image";
 import { client } from "@/sanity/lib/client";
 import { UNIQUE_POST_QUERY } from "@/sanity/lib/queries";
@@ -9,7 +8,7 @@ export const FeaturedPost = async () => {
   const post = await client.fetch(UNIQUE_POST_QUERY, {
     slug: process.env.FEATURED_POST || "how-i-became-a-blogger",
   });
-  const { title, mainImage, author, publishedAt, body, categories } = post!;
+  const { title, mainImage, author, publishedAt, metaText, categories } = post!;
 
   const options = {
     month: "long" as
@@ -51,9 +50,7 @@ export const FeaturedPost = async () => {
         >
           {title}
         </Link>
-        <div className="text-gray-500 max-sm:text-start line-clamp-3">
-          <PortableText value={body!} />
-        </div>
+        <p className="text-gray-500 text-center line-clamp-3">{metaText}</p>
         <p className="text-gray-500 my-4 text-sm font-semibold">
           By{" "}
           <Link
