@@ -12,7 +12,7 @@ export const HeaderModal = () => {
             <Modal
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}
-                placement="top-center"
+                placement="bottom"
                 className="p-4"
             >
                 <ModalContent>
