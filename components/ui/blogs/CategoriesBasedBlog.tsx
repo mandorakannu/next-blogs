@@ -49,7 +49,7 @@ export const CategoriesBasedBlog = async ({
             alt={firstBlogAlt}
             width={800}
             height={300}
-            className="-z-10 row-span-full col-span-full grayscale brightness-75 group-hover:scale-110 w-full h-3/4"
+            className="-z-10 row-span-full col-span-full grayscale brightness-75 group-hover:scale-110 w-full max-sm:h-full h-3/4"
           />
           <div className="flex flex-col justify-center items-center text-white text-center z-10 row-span-full col-span-full px-5">
             <Link
@@ -77,37 +77,38 @@ export const CategoriesBasedBlog = async ({
         </div>
         <section className="max-sm:hidden flex flex-col justify-center items-start gap-10">
           {blogs.map(
-            ({ _id, title, categories, slug, author }: any, index: number) => (
-              <div
-                key={_id}
-                className="flex flex-row gap-3 justify-start items-center"
-              >
-                <p className="text-5xl text-primary-400">{index + 1 + "."}</p>
-                <div className="flex flex-col gap-1 justify-center items-start">
-                  <Link
-                    href={`/categories/${categories![0].slug?.current}`}
-                    className="text-gray-500 hover:text-red-500 uppercase text-sm"
-                  >
-                    {categories![0].title}
-                  </Link>
-                  <Link
-                    href={`/blogs/${slug?.current}`}
-                    className="hover:text-primary-500 font-bold"
-                  >
-                    {title}
-                  </Link>
-                  <p className="text-gray-500">
-                    By{" "}
+            ({ _id, title, categories, slug, author }: any, index: number) =>
+              index < 4 ? (
+                <div
+                  key={_id}
+                  className="flex flex-row gap-3 justify-start items-center"
+                >
+                  <p className="text-5xl text-primary-400">{index + 1 + "."}</p>
+                  <div className="flex flex-col gap-1 justify-center items-start">
                     <Link
-                      href="/mandorakannu"
-                      className="hover:text-primary-500"
+                      href={`/categories/${categories![0].slug?.current}`}
+                      className="text-gray-500 hover:text-red-500 uppercase text-sm"
                     >
-                      {author?.name}
+                      {categories![0].title}
                     </Link>
-                  </p>
+                    <Link
+                      href={`/blogs/${slug?.current}`}
+                      className="hover:text-primary-500 font-bold"
+                    >
+                      {title}
+                    </Link>
+                    <p className="text-gray-500">
+                      By{" "}
+                      <Link
+                        href="/mandorakannu"
+                        className="hover:text-primary-500"
+                      >
+                        {author?.name}
+                      </Link>
+                    </p>
+                  </div>
                 </div>
-              </div>
-            )
+              ) : null
           )}
         </section>
       </section>
