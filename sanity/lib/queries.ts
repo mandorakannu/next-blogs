@@ -14,3 +14,5 @@ export const ALL_POSTS_QUERY = defineQuery(`*[_type == "post"]{
 }`);
 
 export const CATEGORIES_QUERY = defineQuery(`*[_type == "category"]`);
+
+export const CATEGORIES_BASED_BLOG_QUERY = defineQuery(`*[_type == "post" && references($categoryId)] {_id,title,mainImage, slug, author->{_id, name},"categories": categories[]->title, slug}`);
