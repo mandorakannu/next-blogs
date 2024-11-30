@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
       disallow: '/studio/',
+      crawlDelay: 10,
     },
     sitemap: 'https://content.mandorakannu.xyz/sitemap.xml',
   }
