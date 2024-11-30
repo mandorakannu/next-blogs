@@ -15,9 +15,69 @@ const font = Karla({
   subsets: ["latin", "latin-ext"],
 });
 export const metadata: Metadata = {
-  title: "Kannu Mandora Blogs | Tech Enthusiast",
+  title: "Journal |Kannu Mandora | Tech Enthusiast",
   description:
-    "Kannu Mandora's personal blog about tech, programming, and more. Kannu is a Full Stack Developer and tech enthusiast.",
+    "Explore insightful and engaging content on Mandorakannu's blog, where we cover a variety of topics including technology, lifestyle, and personal growth. Dive in to discover well-researched articles, expert opinions, and a community of curious minds.",
+  keywords: [
+    "Kannu",
+    "Kannu Mandora",
+    "Mandora",
+    "Web Developer",
+    "Full Stack",
+    "MERN Stack",
+    "Stack",
+    "Full Stack Developer",
+    "Mandora Kannu",
+    "tech blogger",
+    "blogging",
+    "technology",
+    "lifestyle",
+    "personal growth",
+    "well-researched articles",
+    "expert opinions",
+    "community",
+    "curious minds",
+  ],
+  authors: [{ name: "Kannu Mandora" }],
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Journal |Kannu Mandora | Tech Enthusiast",
+    description:
+      "Explore insightful and engaging content on Mandorakannu's blog, where we cover a variety of topics including technology, lifestyle, and personal growth. Dive in to discover well-researched articles, expert opinions, and a community of curious minds.",
+    siteId: "@mandorakannu",
+    creator: "@KannuMandora",
+    creatorId: "1467726470533754880",
+    images: ["https://content.mandorakannu.xyz/images/author.jpg"],
+  },
+  verification: {
+    google: "_RMbn1Udckop0qHdoAu_PoiGFWqwB19CecNEqZfHxAE",
+    yandex: "yandex",
+    yahoo: "yahoo",
+    other: {
+      me: ["mandorakannu@gmail.com"],
+    },
+  },
+  icons: [
+    {
+      href: "/favicon.ico",
+      rel: "icon",
+      type: "image/x-icon",
+      url: "/favicon.ico",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -28,17 +88,17 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <ChakraProvider>
-      <html lang="en">
-        <body className={font.className}>
-          <NextUIProvider>
-            <Header />
-            <Hamburger />
-            <ScrollToTop />
-            {children}
-            <Footer />
-          </NextUIProvider>
-        </body>
-      </html>
+        <html lang="en">
+          <body className={font.className}>
+            <NextUIProvider>
+              <Header />
+              <Hamburger />
+              <ScrollToTop />
+              {children}
+              <Footer />
+            </NextUIProvider>
+          </body>
+        </html>
       </ChakraProvider>
     </ClerkProvider>
   );
