@@ -15,7 +15,7 @@ const font = Karla({
   subsets: ["latin", "latin-ext"],
 });
 export const metadata: Metadata = {
-  title: "Journal |Kannu Mandora | Tech Enthusiast",
+  title: "Journal | Kannu Mandora | Tech Enthusiast",
   description:
     "Explore insightful and engaging content on Mandorakannu's blog, where we cover a variety of topics including technology, lifestyle, and personal growth. Dive in to discover well-researched articles, expert opinions, and a community of curious minds.",
   keywords: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Journal |Kannu Mandora | Tech Enthusiast",
+    title: "Journal | Kannu Mandora | Tech Enthusiast",
     description:
       "Explore insightful and engaging content on Mandorakannu's blog, where we cover a variety of topics including technology, lifestyle, and personal growth. Dive in to discover well-researched articles, expert opinions, and a community of curious minds.",
     siteId: "@mandorakannu",
