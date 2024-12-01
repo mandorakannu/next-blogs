@@ -39,6 +39,14 @@ export const Hamburger = () => {
             </Link>
             <Link
               size="lg"
+              href="/blogs"
+              key="Blogs"
+              className="hover:underline underline-offset-2"
+            >
+              Blogs
+            </Link>
+            <Link
+              size="lg"
               href="/features"
               key="Features"
               className="hover:underline underline-offset-2"

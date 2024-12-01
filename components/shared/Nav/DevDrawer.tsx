@@ -13,7 +13,7 @@ import { SocialMedia } from "./SocialMedia";
 import Link from "next/link";
 import {useWindowSize} from "@uidotdev/usehooks"
 
-export const Drawer = ({
+export const DevDrawer = ({
   isOpen,
   handleFxn,
 }: {
@@ -24,7 +24,7 @@ export const Drawer = ({
   return (
     <DrawerRoot
       key={"end"}
-      placement={width! > 768 ? "start" : "bottom"}
+      placement={width! > 768 ? "end" : "bottom"}
       open={isOpen}
       onOpenChange={handleFxn}
     >

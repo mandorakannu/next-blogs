@@ -1,7 +1,7 @@
 "use client";
 import { SocialMedia } from "./SocialMedia";
 import { Oswald } from "next/font/google";
-import { Drawer } from "@shared_ui/Nav/Drawer";
+import { NavigatorDrawer } from "@/components/shared/Nav/NavigatorDrawer";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -32,7 +32,7 @@ export const Header = () => {
             <div className="w-8 h-1 bg-black group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer"></div>
             <div className="w-8 h-1 bg-black group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer"></div>
           </div>
-          <Drawer handleFxn={() => setIsOpen(!isOpen)} isOpen={isOpen} />
+          <NavigatorDrawer handleFxn={() => setIsOpen(!isOpen)} isOpen={isOpen} />
           {/* <div className="max-sm:hidden">
                     <HeaderModal />
                 </div> */}
