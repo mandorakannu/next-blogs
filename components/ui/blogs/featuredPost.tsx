@@ -3,6 +3,7 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { client } from "@/sanity/lib/client";
 import { UNIQUE_POST_QUERY } from "@/sanity/lib/queries";
+import { dateConverter } from "@functions/dateConverter";
 
 export const FeaturedPost = async () => {
   const post = await client.fetch(UNIQUE_POST_QUERY, {
@@ -10,21 +11,7 @@ export const FeaturedPost = async () => {
   });
   const { title, mainImage, author, publishedAt, metaText, categories } = post!;
 
-  const options = {
-    month: "long" as
-      | "long"
-      | "numeric"
-      | "2-digit"
-      | "short"
-      | "narrow"
-      | undefined,
-  };
-  const date =
-    new Date(publishedAt!).toLocaleDateString("en-US", options) +
-    " " +
-    new Date(publishedAt!).getDate() +
-    ", " +
-    new Date(publishedAt!).getFullYear();
+  const date = dateConverter(publishedAt as string);
 
   return (
     <>

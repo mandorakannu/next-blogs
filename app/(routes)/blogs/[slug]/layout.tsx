@@ -4,6 +4,6 @@ export default function BlogLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section className="py-10 px-3">{ children }</section>
+    <section className="py-10 px-3 mx-auto">{ children }</section>
   );
 }
