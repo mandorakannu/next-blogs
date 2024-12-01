@@ -8,6 +8,7 @@ import { Header } from "@shared_ui/Nav/Header";
 import { ScrollToTop } from "@ui/ScrollToTop";
 import { Footer } from "@shared_ui/Footer";
 import { ChakraProvider } from "@shared_ui/providers/ChakraProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 const font = Karla({
   weight: ["200", "300", "400", "500", "600", "700"],
@@ -19,24 +20,34 @@ export const metadata: Metadata = {
   description:
     "Explore insightful and engaging content on Mandorakannu's blog, where we cover a variety of topics including technology, lifestyle, and personal growth. Dive in to discover well-researched articles, expert opinions, and a community of curious minds.",
   keywords: [
-    "Kannu",
-    "Kannu Mandora",
-    "Mandora",
-    "Web Developer",
-    "Full Stack",
-    "MERN Stack",
-    "Stack",
-    "Full Stack Developer",
-    "Mandora Kannu",
-    "tech blogger",
-    "blogging",
+    "journal",
+    "blog",
     "technology",
     "lifestyle",
     "personal growth",
-    "well-researched articles",
-    "expert opinions",
-    "community",
-    "curious minds",
+    "Kannu Mandora",
+    "content",
+    "articles",
+    "news",
+    "web dev",
+    "MERN stack",
+    "React",
+    "Node.js",
+    "frontend",
+    "backend",
+    "full-stack",
+    "coding",
+    "JavaScript",
+    "MongoDB",
+    "Express",
+    "tutorials",
+    "projects",
+    "developer",
+    "upskilling",
+    "tech",
+    "programming",
+    "career tips",
+    "blogging",
   ],
   authors: [{ name: "Kannu Mandora" }],
   robots: {
@@ -52,23 +63,39 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  twitter: {
-    card: "summary_large_image",
+  openGraph: {
+    type: "website",
+    url: "https://content.mandorakannu.xyz",
     title: "Journal | Kannu Mandora | Tech Enthusiast",
     description:
       "Explore insightful and engaging content on Mandorakannu's blog, where we cover a variety of topics including technology, lifestyle, and personal growth. Dive in to discover well-researched articles, expert opinions, and a community of curious minds.",
-    siteId: "@mandorakannu",
-    creator: "@KannuMandora",
-    creatorId: "1467726470533754880",
-    images: ["https://content.mandorakannu.xyz/images/author.jpg"],
+    images: [
+      {
+        url: "https://content.mandorakannu.xyz/images/typewritter.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Journal | Kannu Mandora",
+      },
+    ],
+    siteName: "Journal | Kannu Mandora | Tech Enthusiast",
+    countryName: "India",
+    locale: "en_IN",
+  },
+  twitter: {
+    creatorId: "@mandorakannu",
+    card: "summary_large_image",
+    title: "Journal | Kannu Mandora | Tech Enthusiast",
+    creator: "Kannu Mandora",
+    description:
+      "Explore insightful and engaging content on Mandorakannu's blog, where we cover a variety of topics including technology, lifestyle, and personal growth. Dive in to discover well-researched articles, expert opinions, and a community of curious minds.",
+    images: {
+      url: "https://content.mandorakannu.xyz/images/author.jpg",
+      alt: "Journal | Kannu Mandora",
+    },
   },
   verification: {
-    google: "_RMbn1Udckop0qHdoAu_PoiGFWqwB19CecNEqZfHxAE",
-    yandex: "yandex",
-    yahoo: "yahoo",
-    other: {
-      me: ["mandorakannu@gmail.com"],
-    },
+    google: "RMbn1Udckop0qHdoAu_PoiGFWqwB19CecNEqZfHxAE",
+    yahoo: "74bbe6e379214911a1f7682e4d6e244e",
   },
   icons: [
     {
@@ -97,6 +124,7 @@ export default function RootLayout({
               {children}
               <Footer />
             </NextUIProvider>
+            <Analytics />
           </body>
         </html>
       </ChakraProvider>
