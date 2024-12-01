@@ -3,6 +3,7 @@ import { PortableText } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import { UNIQUE_POST_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import Image from "next/image";
 
 export default async function UniqueBlog({ params }: Props) {
   const { slug } = await params;
@@ -11,6 +12,15 @@ export default async function UniqueBlog({ params }: Props) {
   return (
     <>
       <div className="prose mx-auto">
+        <h1 className="text-4xl font-bold mt-8">{post!.title}</h1>
+        <Image
+          src={urlFor(post!.mainImage!).url()!}
+          alt={post!.mainImage!.alt!}
+          width={800}
+          height={600}
+          priority
+          className="rounded-lg mt-8 border"
+        />
         <PortableText value={post!.body!} />
       </div>
     </>
