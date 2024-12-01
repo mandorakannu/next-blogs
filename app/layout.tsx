@@ -18,7 +18,7 @@ const font = Karla({
 export const metadata: Metadata = {
   title: "Journal | Kannu Mandora | Tech Enthusiast",
   description:
-    "Explore insightful and engaging content on Mandorakannu's blog, where we cover a variety of topics including technology, lifestyle, and personal growth. Dive in to discover well-researched articles, expert opinions, and a community of curious minds.",
+    "Discover blogs on web development, coding tips, and MERN stack tutorials. Stay updated with the latest trends to enhance your full-stack development skills!",
   keywords: [
     "journal",
     "blog",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     url: "https://content.mandorakannu.xyz",
     title: "Journal | Kannu Mandora | Tech Enthusiast",
     description:
-      "Explore insightful and engaging content on Mandorakannu's blog, where we cover a variety of topics including technology, lifestyle, and personal growth. Dive in to discover well-researched articles, expert opinions, and a community of curious minds.",
+      "Discover blogs on web development, coding tips, and MERN stack tutorials. Stay updated with the latest trends to enhance your full-stack development skills!",
     images: [
       {
         url: "https://content.mandorakannu.xyz/images/typewritter.jpg",
@@ -87,9 +87,9 @@ export const metadata: Metadata = {
     title: "Journal | Kannu Mandora | Tech Enthusiast",
     creator: "Kannu Mandora",
     description:
-      "Explore insightful and engaging content on Mandorakannu's blog, where we cover a variety of topics including technology, lifestyle, and personal growth. Dive in to discover well-researched articles, expert opinions, and a community of curious minds.",
+      "Discover blogs on web development, coding tips, and MERN stack tutorials. Stay updated with the latest trends to enhance your full-stack development skills!",
     images: {
-      url: "https://content.mandorakannu.xyz/images/author.jpg",
+      url: "https://content.mandorakannu.xyz/images/typewritter.jpg",
       alt: "Journal | Kannu Mandora",
     },
   },
@@ -105,6 +105,10 @@ export const metadata: Metadata = {
       url: "/favicon.ico",
     },
   ],
+  metadataBase: new URL(`https://content.mandorakannu.xyz`),
+  alternates: {
+    canonical: './',
+}
 };
 
 export default function RootLayout({

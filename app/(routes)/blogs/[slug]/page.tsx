@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import { PortableText } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import { UNIQUE_POST_QUERY } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
-export default async function UniqueBlog({
-  params,
-}: Props) {
+export default async function UniqueBlog({ params }: Props) {
   const { slug } = await params;
   const post = await client.fetch(UNIQUE_POST_QUERY, { slug });
 
@@ -32,7 +31,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await client.fetch(UNIQUE_POST_QUERY, { slug });
 
   return {
-    title: data!.title,
+    title: data!.title + " | Kannu Mandora",
     description: data!.metaText,
+    openGraph: {
+      title: data!.title!,
+      description: data!.metaText!,
+      type: "article",
+      images: [
+        {
+          url: urlFor(data!.mainImage!).url()!,
+          width: 800,
+          height: 600,
+          alt: data!.mainImage ? data!.mainImage.alt : "ALT Text",
+        },
+      ],
+      publishedTime: data!.publishedAt!,
+      countryName: "India",
+      locale: "en_IN",
+      alternateLocale: "en_US",
+      authors: ["https://mandorakannu.xyz"],
+      siteName: "Journal | Kannu Mandora | Tech Enthusiast",
+    },
+    robots: "index, follow",
   };
 }
