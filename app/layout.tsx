@@ -16,7 +16,7 @@ const font = Karla({
   subsets: ["latin", "latin-ext"],
 });
 export const metadata: Metadata = {
-  title: "Journal | Kannu Mandora | Tech Enthusiast",
+  title: "Journal | Kannu Mandora | Blogger",
   description:
     "Discover blogs on web development, coding tips, and MERN stack tutorials. Stay updated with the latest trends to enhance your full-stack development skills!",
   keywords: [
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://content.mandorakannu.xyz",
-    title: "Journal | Kannu Mandora | Tech Enthusiast",
+    title: "Journal | Kannu Mandora | Blogger",
     description:
       "Discover blogs on web development, coding tips, and MERN stack tutorials. Stay updated with the latest trends to enhance your full-stack development skills!",
     images: [
@@ -74,23 +74,23 @@ export const metadata: Metadata = {
         url: "https://content.mandorakannu.xyz/images/typewritter.jpg",
         width: 800,
         height: 600,
-        alt: "Journal | Kannu Mandora",
+        alt: "Journal | Kannu Mandora | Blogger",
       },
     ],
-    siteName: "Journal | Kannu Mandora | Tech Enthusiast",
+    siteName: "Journal | Kannu Mandora | Blogger",
     countryName: "India",
     locale: "en_IN",
   },
   twitter: {
     creatorId: "@mandorakannu",
     card: "summary_large_image",
-    title: "Journal | Kannu Mandora | Tech Enthusiast",
+    title: "Journal | Kannu Mandora | Blogger",
     creator: "Kannu Mandora",
     description:
       "Discover blogs on web development, coding tips, and MERN stack tutorials. Stay updated with the latest trends to enhance your full-stack development skills!",
     images: {
       url: "https://content.mandorakannu.xyz/images/typewritter.jpg",
-      alt: "Journal | Kannu Mandora",
+      alt: "Journal | Kannu Mandora | Blogger",
     },
   },
   verification: {
