@@ -43,6 +43,6 @@ export default function manifest(): MetadataRoute.Manifest {
     },
     display_override: ["standalone"],
     prefer_related_applications: false,
-    id: "https://content.mandorakannu.xyz/",
+    id: "https://blog.mandorakannu.xyz/",
   };
 }

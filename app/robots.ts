@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/studio/',
     },
-    sitemap: 'https://content.mandorakannu.xyz/sitemap.xml',
+    sitemap: 'https://blog.mandorakannu.xyz/sitemap.xml',
   }
 }

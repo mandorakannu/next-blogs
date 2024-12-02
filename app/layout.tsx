@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ClerkProvider } from "@shared_ui/providers/ClerkProvider";
 import { NextUIProvider } from "@shared_ui/providers/NextUiProvider";
 import { Karla } from "next/font/google";
 import { Hamburger } from "@ui/Hambar.Modal";
@@ -65,13 +64,13 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://content.mandorakannu.xyz",
+    url: "https:/blog.mandorakannu.xyz",
     title: "Journal | Kannu Mandora | Blogger",
     description:
       "Discover blogs on web development, coding tips, and MERN stack tutorials. Stay updated with the latest trends to enhance your full-stack development skills!",
     images: [
       {
-        url: "https://content.mandorakannu.xyz/images/typewritter.jpg",
+        url: "https:/blog.mandorakannu.xyz/images/typewritter.jpg",
         width: 800,
         height: 600,
         alt: "Journal | Kannu Mandora | Blogger",
@@ -89,7 +88,7 @@ export const metadata: Metadata = {
     description:
       "Discover blogs on web development, coding tips, and MERN stack tutorials. Stay updated with the latest trends to enhance your full-stack development skills!",
     images: {
-      url: "https://content.mandorakannu.xyz/images/typewritter.jpg",
+      url: "https:/blog.mandorakannu.xyz/images/typewritter.jpg",
       alt: "Journal | Kannu Mandora | Blogger",
     },
   },
@@ -105,7 +104,7 @@ export const metadata: Metadata = {
       url: "/favicon.ico",
     },
   ],
-  metadataBase: new URL(`https://content.mandorakannu.xyz`),
+  metadataBase: new URL(`https:/blog.mandorakannu.xyz`),
   alternates: {
     canonical: './',
 }
@@ -117,7 +116,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
       <ChakraProvider>
         <html lang="en">
           <body className={font.className}>
@@ -132,6 +130,5 @@ export default function RootLayout({
           </body>
         </html>
       </ChakraProvider>
-    </ClerkProvider>
   );
 }
