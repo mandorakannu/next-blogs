@@ -95,6 +95,10 @@ export const metadata: Metadata = {
   verification: {
     google: "RMbn1Udckop0qHdoAu_PoiGFWqwB19CecNEqZfHxAE",
     yahoo: "74bbe6e379214911a1f7682e4d6e244e",
+    other: {
+      name: "msvalidate.01",
+      content: "A9304B9F6C8E024FBD2FA36990903E5C",
+    },
   },
   icons: [
     {
@@ -106,8 +110,8 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL(`https:/blog.mandorakannu.xyz`),
   alternates: {
-    canonical: './',
-}
+    canonical: "./",
+  },
 };
 
 export default function RootLayout({
@@ -116,19 +120,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <ChakraProvider>
-        <html lang="en">
-          <body className={font.className}>
-            <NextUIProvider>
-              <Header />
-              <Hamburger />
-              <ScrollToTop />
-              {children}
-              <Footer />
-            </NextUIProvider>
-            <Analytics />
-          </body>
-        </html>
-      </ChakraProvider>
+    <ChakraProvider>
+      <html lang="en">
+        <body className={font.className}>
+          <NextUIProvider>
+            <Header />
+            <Hamburger />
+            <ScrollToTop />
+            {children}
+            <Footer />
+          </NextUIProvider>
+          <Analytics />
+        </body>
+      </html>
+    </ChakraProvider>
   );
 }
