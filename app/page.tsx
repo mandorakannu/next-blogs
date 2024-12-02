@@ -7,8 +7,9 @@ export default async function Home() {
     <>
       <FeaturedPost />
       <TrendingNews />
-      <CategoriesBasedBlog slug="health" flexProps="flex-row" />
+      <CategoriesBasedBlog slug="health" flexProps="flex-row" twClasses="border-t-2 border-primary-600" />
       <CategoriesBasedBlog slug="tech" flexProps="flex-row-reverse" />
+      <CategoriesBasedBlog slug="fashion" flexProps="flex-row" twClasses="border-b-0" />
     </>
   );
 }
