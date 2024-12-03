@@ -48,6 +48,7 @@ export const Header = () => {
           <SocialMedia iconSize={15} classProps="gap-2 max-sm:hidden" />
           <h1
             className={`max-sm:text-4xl text-3xl uppercase cursor-default ${font.className} tracking-widest`}
+            onClick={() => window.location.reload()}
           >
             Journal
           </h1>
