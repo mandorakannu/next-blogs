@@ -15,4 +15,4 @@ export const ALL_POSTS_QUERY = defineQuery(`*[_type == "post"] | order(published
 
 export const CATEGORIES_QUERY = defineQuery(`*[_type == "category"]`);
 
-export const CATEGORIES_BASED_BLOG_QUERY = defineQuery(`*[_type == "post" && references($categoryId)] | order(publishedAt desc) {_id,title,mainImage, slug, author->{_id, name},"categories": categories[]->title, slug}`);
+export const CATEGORIES_BASED_BLOG_QUERY = defineQuery(`*[_type == "post" && references($categoryId)] | order(publishedAt desc) {_id,title,mainImage,publishedAt, metaText, slug, author->{_id, name},"categories": categories[]->title, slug}`);

@@ -546,7 +546,7 @@ export type CATEGORIES_QUERYResult = Array<{
   description?: string;
 }>;
 // Variable: CATEGORIES_BASED_BLOG_QUERY
-// Query: *[_type == "post" && references($categoryId)] | order(publishedAt desc) {_id,title,mainImage, slug, author->{_id, name},"categories": categories[]->title, slug}
+// Query: *[_type == "post" && references($categoryId)] | order(publishedAt desc) {_id,title,mainImage,publishedAt, metaText, slug, author->{_id, name},"categories": categories[]->title, slug}
 export type CATEGORIES_BASED_BLOG_QUERYResult = Array<{
   _id: string;
   title: string | null;
@@ -562,6 +562,8 @@ export type CATEGORIES_BASED_BLOG_QUERYResult = Array<{
     alt?: string;
     _type: "image";
   } | null;
+  publishedAt: string | null;
+  metaText: string | null;
   slug: Slug | null;
   author: {
     _id: string;
@@ -579,6 +581,6 @@ declare module "@sanity/client" {
     "*[_type == \"post\" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body, publishedAt, metaText, categories[]->{_id, title, slug}}": UNIQUE_POST_QUERYResult;
     "*[_type == \"post\"] | order(publishedAt desc){\n  _id, title, slug, author->{_id, name, image}, mainImage, publishedAt, categories[]->{_id, title, slug}, body[0]\n}": ALL_POSTS_QUERYResult;
     "*[_type == \"category\"]": CATEGORIES_QUERYResult;
-    "*[_type == \"post\" && references($categoryId)] | order(publishedAt desc) {_id,title,mainImage, slug, author->{_id, name},\"categories\": categories[]->title, slug}": CATEGORIES_BASED_BLOG_QUERYResult;
+    "*[_type == \"post\" && references($categoryId)] | order(publishedAt desc) {_id,title,mainImage,publishedAt, metaText, slug, author->{_id, name},\"categories\": categories[]->title, slug}": CATEGORIES_BASED_BLOG_QUERYResult;
   }
 }
