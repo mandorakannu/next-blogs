@@ -17,11 +17,7 @@ export default function AboutPage() {
         <div className="border-b border-b-primary-400">
           <h2>Who I Am</h2>
           <p>
-            Welcome! I&apos;m Kannu Mandora, a passionate full-stack developer
-            with a knack for turning ideas into functional and visually engaging
-            web applications. My journey in the world of technology is fueled by
-            curiosity, creativity, and a commitment to building solutions that
-            make a difference.
+            As a developer with expertise in the MERN stack (MongoDB, Express.js, React.js, and Node.js) & Full Stack, I specialize in creating responsive and user-friendly web applications. With a strong foundation in modern technologies, I’m dedicated to writing clean, efficient, and scalable code. My work reflects a balance of technical precision and creative vision, aimed at delivering exceptional digital experiences.
           </p>
         </div>
         <div className="border-b border-b-primary-400">
