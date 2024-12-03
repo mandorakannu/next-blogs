@@ -34,12 +34,13 @@ export const NavigatorDrawer = ({
         <DrawerHeader>
           <DrawerTitle className="text-xl">JOURNAL</DrawerTitle>
         </DrawerHeader>
-        <DrawerBody>
+        <DrawerBody className="">
           {width! > 768 ? (
             <>
               <Image
                 alt="Image of Author Kannu Mandora"
                 src="/images/author.jpg"
+                height={300}
               />
               <Link
                 href={process.env.NEXT_PUBLIC_PORTFOLIO!}
@@ -59,7 +60,6 @@ export const NavigatorDrawer = ({
             </>
           ) : (
             <div className="flex flex-col justify-center items-center gap-4">
-              {/* create a beautiful navigator using Link and tailwindcss classes with background animations */}
               <Link
                 href="/"
                 className="text-xl uppercase text-black text-end hover:text-primary-700 hover:bg-gray-100 transition-all delay-75 border-l-2 border-l-transparent hover:border-primary-600 px-6 py-3 w-full outline-2 outline-primary-700 hover:before:content-['👻'] focus:before:content-['👻'] relative before:absolute before:left-0 before:px-3"
