@@ -16,7 +16,7 @@ export const FeaturedPost = async () => {
   return (
     <>
       <section className="flex flex-col items-center justify-center max-sm:mx-10 sm:mx-20 py-2 mb-10">
-        <Link href="/featured-post" className="overflow-hidden">
+        <Link href={`/blogs/${post!.slug?.current}`} className="overflow-hidden">
           <Image
             src={urlFor(mainImage!.asset!._ref).url() as string}
             alt={mainImage!.alt!}
@@ -26,13 +26,13 @@ export const FeaturedPost = async () => {
           />
         </Link>
         <Link
-          href="/news"
+          href={`/category/${categories![0]!.slug?.current}`}
           className="my-6 text-gray-500 hover:text-primary-500"
         >
           {categories![0]!.title!}
         </Link>
         <Link
-          href="/featured-post"
+          href={`/blogs/${post!.slug?.current}`}
           className="text-4xl mb-6 uppercase hover:underline underline-offset-2 font-bold text-center"
         >
           {title}
