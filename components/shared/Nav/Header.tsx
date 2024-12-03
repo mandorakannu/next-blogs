@@ -3,7 +3,8 @@ import { SocialMedia } from "./SocialMedia";
 import { Oswald } from "next/font/google";
 import { NavigatorDrawer } from "@/components/shared/Nav/NavigatorDrawer";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 const font = Oswald({
   display: "swap",
@@ -13,7 +14,33 @@ const font = Oswald({
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hamburgerColor, setHamburgerColor] = useState<"bg-black" | "bg-white">(
+    "bg-black"
+  );
   const pathname = usePathname();
+  const { width } = useWindowSize();
+
+  useEffect(() => {
+    const headerElement = document.querySelector("#hamburger");
+    const classAddFxn = () => {
+      if (headerElement) {
+        if (window.scrollY > 0 && width! < 640) {
+          setHamburgerColor("bg-white");
+          headerElement.classList.add("text-white", "bg-rose-500", "shadow-md");
+        } else {
+          setHamburgerColor("bg-black");
+          headerElement.classList.remove(
+            "text-white",
+            "bg-rose-500",
+            "shadow-md"
+          );
+        }
+      }
+    };
+    window.addEventListener("scroll", classAddFxn);
+    return () => window.removeEventListener("scroll", classAddFxn);
+  }, [width]);
+
   return (
     <>
       {pathname.includes("/studio") ? null : (
@@ -25,14 +52,24 @@ export const Header = () => {
             Journal
           </h1>
           <div
-            className="flex flex-col justify-center items-center gap-1 group"
+            id="hamburger"
+            className="flex flex-col justify-center items-center gap-1 group max-sm:fixed max-sm:top-6 right-6 p-3 rounded-sm z-50"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <div className="w-8 h-1 bg-black group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer"></div>
-            <div className="w-8 h-1 bg-black group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer"></div>
-            <div className="w-8 h-1 bg-black group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer"></div>
+            <div
+              className={`w-8 h-1 ${hamburgerColor} group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer`}
+            ></div>
+            <div
+              className={`w-8 h-1 ${hamburgerColor} group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer`}
+            ></div>
+            <div
+              className={`w-8 h-1 ${hamburgerColor} group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer`}
+            ></div>
           </div>
-          <NavigatorDrawer handleFxn={() => setIsOpen(!isOpen)} isOpen={isOpen} />
+          <NavigatorDrawer
+            handleFxn={() => setIsOpen(!isOpen)}
+            isOpen={isOpen}
+          />
           {/* <div className="max-sm:hidden">
                     <HeaderModal />
                 </div> */}

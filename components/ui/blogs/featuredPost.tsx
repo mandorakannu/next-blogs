@@ -12,7 +12,6 @@ export const FeaturedPost = async () => {
   });
   const { title, mainImage, author, publishedAt, metaText, categories,slug } =
     post![0];
-    console.log(categories);
 
   const date = dateConverter(publishedAt as string);
 
