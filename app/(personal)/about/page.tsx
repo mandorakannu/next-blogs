@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function AboutPage() {
   return (
     <>
-      <section className="prose mx-auto py-10">
+      <section className="prose mx-auto py-10 px-5">
         <div className="border-b border-b-primary-400">
           <h1>About Kannu Mandora</h1>
           <p>

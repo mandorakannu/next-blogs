@@ -15,7 +15,7 @@ export default function Contact() {
       </section>
       <Form
         action={queryContact}
-        className="space-y-8 max-w-screen-md mx-auto py-10"
+        className="space-y-8 max-w-screen-md mx-auto py-10 px-5"
       >
         <div>
           <label htmlFor="email" className="block mb-2 text-sm font-medium">
