@@ -23,7 +23,7 @@ export const ScrollToTop = () => {
     <>
       {pathname.includes("/studio") ? null : (
         <CircularProgress
-          label=""
+          aria-label="Progress Indicator"
           size="lg"
           value={value}
           color="secondary"
