@@ -15,7 +15,7 @@
   "dependencies": {
     "@chakra-ui/react": "^3.2.1",
     "@emotion/react": "^11.13.5",
-    "@nextui-org/react": "^2.4.8",
+    "@nextui-org/react": "^2.6.2",
     "@sanity/icons": "^3.4.0",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.64.2",

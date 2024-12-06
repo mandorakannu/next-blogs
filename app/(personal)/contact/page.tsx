@@ -1,7 +1,11 @@
-import Form from "next/form";
+"use client";
+import { useActionState } from "react";
+import { Alert } from "@nextui-org/react";
+import { Loader } from "@ui/Loader";
 import queryContact from "@/assets/actions/contact.actions";
 
 export default function Contact() {
+  const [state, formAction, isPending] = useActionState(queryContact, null);
   return (
     <>
       <section className="px-4 py-6 mx-auto max-w-screen-md">
@@ -13,8 +17,19 @@ export default function Contact() {
           Need details about our Business plan? Let us know.
         </p>
       </section>
-      <Form
-        action={queryContact}
+      <div className="flex mx-auto w-3/4">
+      {state?.message ? (
+          <Alert
+            hideIcon
+            color={state.status === 200 ? "sucess" : "danger"}
+            description={`${state.message} | Status Code: ${state.status}`}
+            title={state.status === 200 ? "Booyah!" : "Nooooo!"}
+            variant="faded"
+          />
+        ) : null}
+      </div>
+      <form
+        action={formAction}
         className="space-y-8 max-w-screen-md mx-auto py-10 px-5"
       >
         <div>
@@ -59,9 +74,9 @@ export default function Contact() {
           role="button"
           className="flex flex-row justify-center items-center py-3 px-10 w-52 h-14 overflow-hidden uppercase text-black rounded hover:shadow-2xl transition-all delay-100 hover:border-primary-500 border-2 text-center"
         >
-          Send Message
+          {isPending ? <Loader /> : "Send Message"}
         </button>
-      </Form>
+      </form>
     </>
   );
 }
