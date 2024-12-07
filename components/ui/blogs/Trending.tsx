@@ -37,7 +37,7 @@ export const TrendingNews = async () => {
                 <div className="flex flex-col gap-1 justify-center items-start">
                   <Link
                     href={`/categories/${categories![0].slug?.current}`}
-                    className="text-gray-500 hover:text-red-500 uppercase text-sm"
+                    className="text-gray-500 dark:text-gray-300 hover:text-red-500 uppercase text-sm"
                   >
                     {categories![0].title}
                   </Link>

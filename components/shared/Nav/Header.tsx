@@ -58,22 +58,19 @@ export const Header = () => {
             onClick={() => setIsOpen(!isOpen)}
           >
             <div
-              className={`w-8 h-1 ${hamburgerColor} group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer`}
+              className={`w-8 h-1 ${hamburgerColor} group-hover:bg-primary-400 dark:bg-white dark:group-hover:bg-gray-500 delay-75 transition-colors cursor-pointer`}
             ></div>
             <div
-              className={`w-8 h-1 ${hamburgerColor} group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer`}
+              className={`w-8 h-1 ${hamburgerColor} group-hover:bg-primary-400 dark:bg-white dark:group-hover:bg-gray-500 delay-75 transition-colors cursor-pointer`}
             ></div>
             <div
-              className={`w-8 h-1 ${hamburgerColor} group-hover:bg-primary-400 delay-75 transition-colors cursor-pointer`}
+              className={`w-8 h-1 ${hamburgerColor} group-hover:bg-primary-400 dark:bg-white dark:group-hover:bg-gray-500 delay-75 transition-colors cursor-pointer`}
             ></div>
           </div>
           <NavigatorDrawer
             handleFxn={() => setIsOpen(!isOpen)}
             isOpen={isOpen}
           />
-          {/* <div className="max-sm:hidden">
-                    <HeaderModal />
-                </div> */}
         </div>
       )}
     </>

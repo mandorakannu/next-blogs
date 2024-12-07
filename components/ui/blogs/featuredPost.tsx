@@ -32,7 +32,7 @@ export const FeaturedPost = async () => {
         </Link>
         <Link
           href={`/category/${categories![0]?.toLowerCase()}`}
-          className="my-6 text-gray-500 hover:text-primary-500"
+          className="my-6 text-gray-500 hover:text-primary-500 dark:text-gray-300"
         >
           {categories![0]}
         </Link>
@@ -42,12 +42,12 @@ export const FeaturedPost = async () => {
         >
           {title}
         </Link>
-        <p className="text-gray-500 text-center line-clamp-3">{metaText}</p>
-        <p className="text-gray-500 my-4 text-sm font-semibold">
+        <p className="text-gray-500 dark:text-gray-300 text-center line-clamp-3">{metaText}</p>
+        <p className="text-gray-500 dark:text-gray-300 my-4 text-sm font-semibold">
           By{" "}
           <Link
             href="/mandorakannu"
-            className="text-black hover:text-primary-700 uppercase"
+            className="text-black dark:text-gray-400 hover:text-primary-700 uppercase"
           >
             {author?.name}
           </Link>{" "}

@@ -103,7 +103,7 @@ export const CategoriesBasedBlog = async ({
                       By{" "}
                       <Link
                         href="/mandorakannu"
-                        className="hover:text-primary-500"
+                        className="hover:text-primary-500  dark:text-gray-400"
                       >
                         {author?.name}
                       </Link>

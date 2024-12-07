@@ -21,7 +21,7 @@ export default async function UniqueBlog({ params }: Props) {
 
   return (
     <>
-      <div className="prose mx-auto">
+      <div className="prose dark:prose-invert mx-auto">
         <h1 className="text-4xl font-bold mt-8">{post!.title}</h1>
         <Image
           src={urlFor(post!.mainImage!).url()!}

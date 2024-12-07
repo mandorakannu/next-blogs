@@ -26,11 +26,11 @@ export const ScrollToTop = () => {
           aria-label="Progress Indicator"
           size="lg"
           value={value}
-          color="secondary"
+          color="danger"
           formatOptions={{ style: "percent" }}
           showValueLabel={true}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="items-center justify-center fixed bottom-4 right-4 z-50 cursor-pointer bg-white rounded-full shadow-lg"
+          className="items-center justify-center fixed bottom-4 right-4 z-50 cursor-pointer bg-white rounded-full shadow-lg dark:bg-black dark:text-white"
         />
       )}
     </>

@@ -13,7 +13,7 @@ export const Footer = () => {
                   process.env.NEXT_PUBLIC_PORTFOLIO ||
                   "https://mandorakannu.vercel.app/"
                 }
-                className="uppercase hover:text-primary-400"
+                className="uppercase hover:text-primary-400 dark:text-gray-300"
               >
                 {" "}
                 Kannu Mandora

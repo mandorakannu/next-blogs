@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { NextUIProvider } from "@shared_ui/providers/NextUiProvider";
 import { Karla } from "next/font/google";
-import { Hamburger } from "@ui/Hambar.Modal";
 import { Header } from "@shared_ui/Nav/Header";
 import { ScrollToTop } from "@ui/ScrollToTop";
 import { Footer } from "@shared_ui/Footer";
@@ -121,11 +120,10 @@ export default function RootLayout({
 }>) {
   return (
     <ChakraProvider>
-      <html lang="en">
+      <html lang="en" className="dark:bg-slate-800 dark:text-white">
         <body className={font.className}>
           <NextUIProvider>
             <Header />
-            <Hamburger />
             <ScrollToTop />
             {children}
             <Footer />

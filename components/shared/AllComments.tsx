@@ -15,19 +15,19 @@ type CommentType = {
   email: string;
 };
 
-export const AllComments = async ({ comments }: any) => {
+export const AllComments = ({ comments }: any) => {
   return (
     <>
-      {Array.isArray(comments) &&
-        comments.map(
-          ({ _createdAt, _id, name, email, comment }: CommentType) => {
-            const commentDate = dateConverter(_createdAt);
-            return (
-              <article
-                key={_id}
-                className="p-6 text-base bg-white rounded-md dark:bg-gray-900 border-t-2 border-primary-700"
-              >
-                <div className="border-2 border-primary-800 bg-white rounded-lg dark:bg-gray-900 p-5 my-6">
+      {comments.length > 1 && (
+        <article className="p-6 text-base bg-white rounded-md dark:bg-slate-800 border-t-2 border-primary-700">
+          {comments.map(
+            ({ _createdAt, _id, name, email, comment }: CommentType) => {
+              const commentDate = dateConverter(_createdAt);
+              return (
+                <div
+                  key={_id}
+                  className="border-2 border-primary-800 bg-white rounded-lg dark:bg-gray-900 p-5 my-6"
+                >
                   <footer className="flex justify-between items-start mb-2">
                     <div className="flex justify-center items-center text-sm text-gray-900 dark:text-white font-semibold">
                       <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
@@ -46,10 +46,11 @@ export const AllComments = async ({ comments }: any) => {
                   </footer>
                   <p className="text-gray-500 dark:text-gray-400">{comment}</p>
                 </div>
-              </article>
-            );
-          }
-        )}
+              );
+            }
+          )}
+        </article>
+      )}
     </>
   );
 };
