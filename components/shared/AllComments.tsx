@@ -18,7 +18,7 @@ type CommentType = {
 export const AllComments = ({ comments }: any) => {
   return (
     <>
-      {comments[0]._id && (
+      {comments[0] ? (
         <article className="p-6 text-base bg-white rounded-md dark:bg-slate-800 border-t-2 border-primary-700">
           {comments.map(
             ({ _createdAt, _id, name, email, comment }: CommentType) => {
@@ -30,7 +30,7 @@ export const AllComments = ({ comments }: any) => {
                 >
                   <footer className="flex justify-between items-start mb-2">
                     <div className="flex justify-center items-center text-sm text-gray-900 dark:text-white font-semibold">
-                      <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
+                      <Avatar src={name==="Kannu Mandora" ? "/images/author.jpg": "https://i.pravatar.cc/"} />
                       <p className="flex flex-col ml-4">
                         <span>{name}</span>
                         <span className="text-gray-500 text-xs">{email}</span>
@@ -50,7 +50,7 @@ export const AllComments = ({ comments }: any) => {
             }
           )}
         </article>
-      )}
+      ): null}
     </>
   );
 };
