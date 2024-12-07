@@ -18,7 +18,7 @@ type CommentType = {
 export const AllComments = ({ comments }: any) => {
   return (
     <>
-      {comments.length > 1 && (
+      {comments[0]._id && (
         <article className="p-6 text-base bg-white rounded-md dark:bg-slate-800 border-t-2 border-primary-700">
           {comments.map(
             ({ _createdAt, _id, name, email, comment }: CommentType) => {
