@@ -410,7 +410,7 @@ export type AUTHOR_QUERYResult = Array<{
   }>;
 }>;
 // Variable: UNIQUE_POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body, publishedAt, metaText, categories[]->{_id, title, slug}}
+// Query: *[_type == "post" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body, publishedAt, metaText, categories[]->{_id, title, slug}, "comments": *[_type == "comment" && post._ref == ^.id]}
 export type UNIQUE_POST_QUERYResult = {
   _id: string;
   title: string | null;
@@ -479,6 +479,22 @@ export type UNIQUE_POST_QUERYResult = {
     title: string | null;
     slug: Slug | null;
   }> | null;
+  comments: Array<{
+    _id: string;
+    _type: "comment";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    name?: string;
+    email?: string;
+    comment?: string;
+    post?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "post";
+    };
+  }>;
 } | null;
 // Variable: ALL_POSTS_QUERY
 // Query: *[_type == "post"] | order(publishedAt desc){  _id, title, slug, author->{_id, name, image}, mainImage, publishedAt, categories[]->{_id, title, slug}, body[0]}
@@ -595,7 +611,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"post\" && defined(slug.current)][0...12] | order(publishedAt desc){\n  _id, title, slug, author->{_id, name, image}, mainImage, publishedAt, categories[]->{_id, title, slug}, body[0]\n}": POSTS_QUERYResult;
     "*[_type == \"author\"]": AUTHOR_QUERYResult;
-    "*[_type == \"post\" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body, publishedAt, metaText, categories[]->{_id, title, slug}}": UNIQUE_POST_QUERYResult;
+    "*[_type == \"post\" && slug.current == $slug][0]{_id, title, slug, mainImage, author->{_id, name, image}, body, publishedAt, metaText, categories[]->{_id, title, slug}, \"comments\": *[_type == \"comment\" && post._ref == ^.id]}": UNIQUE_POST_QUERYResult;
     "*[_type == \"post\"] | order(publishedAt desc){\n  _id, title, slug, author->{_id, name, image}, mainImage, publishedAt, categories[]->{_id, title, slug}, body[0]\n}": ALL_POSTS_QUERYResult;
     "*[_type == \"category\"]": CATEGORIES_QUERYResult;
     "*[_type == \"post\" && references($categoryId)] | order(publishedAt desc) {_id,title,mainImage,publishedAt, metaText, slug, author->{_id, name},\"categories\": categories[]->title, slug}": CATEGORIES_BASED_BLOG_QUERYResult;

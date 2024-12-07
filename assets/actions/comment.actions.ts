@@ -11,9 +11,16 @@ export async function comments(prevState: any, formData: FormData) {
       name: username,
       email: userEmail,
       comment,
-      postId,
+      post: {
+        _type: "reference",
+        _ref: postId,
+      },
     },
-    { headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_TOKEN}` } }
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_TOKEN}`,
+      },
+    }
   );
   return !queryResult
     ? {
