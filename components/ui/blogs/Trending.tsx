@@ -1,12 +1,12 @@
-import { client } from "@/sanity/lib/client";
 import Link from "next/link";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
+import { sanityFetch } from "@/sanity/lib/live";
+
 export const TrendingNews = async () => {
-  const blogs = await client.fetch(
-    POSTS_QUERY,
-    {},
-    { cache: "force-cache", next: { revalidate: 300 } }
-  );
+  const { data: blogs } = await sanityFetch({
+    query: POSTS_QUERY,
+    params: { limit: 4, sort: "publishedAt desc" },
+  });
   return (
     <>
       <section className="py-10 max-sm:mx-10 sm:mx-20">
@@ -27,7 +27,7 @@ export const TrendingNews = async () => {
         <hr className="my-5 sm:hidden" />
         {/* Cards */}
         <section className="flex max-sm:flex-col flex-row justify-center items-center gap-6 py-6">
-          {blogs.map(({ _id, title, categories, slug }, index) => (
+          {blogs.map(({ _id, title, categories, slug }, index) =>
             index < 4 ? (
               <div
                 key={_id}
@@ -50,7 +50,7 @@ export const TrendingNews = async () => {
                 </div>
               </div>
             ) : null
-          ))}
+          )}
         </section>
       </section>
     </>

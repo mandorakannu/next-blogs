@@ -18,7 +18,7 @@ export async function comments(prevState: any, formData: FormData) {
     },
     {
       headers: {
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_TOKEN}`,
+        Authorization: `Bearer ${process.env.SANITY_API_TOKEN}`,
       },
     }
   );

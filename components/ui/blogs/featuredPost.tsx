@@ -1,16 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import { client } from "@/sanity/lib/client";
 import { CATEGORIES_BASED_BLOG_QUERY } from "@/sanity/lib/queries";
 import { dateConverter } from "@functions/dateConverter";
 import { SlugSorter } from "@/assets/functions/slugSorter";
+import { sanityFetch } from "@/sanity/lib/live";
 
 export const FeaturedPost = async () => {
-  const post = await client.fetch(CATEGORIES_BASED_BLOG_QUERY, {
-    categoryId: SlugSorter("personal"),
+  const { data: post } = await sanityFetch({
+    query: CATEGORIES_BASED_BLOG_QUERY,
+    params: {
+      categoryId: SlugSorter("personal"),
+    },
   });
-  const { title, mainImage, author, publishedAt, metaText, categories,slug } =
+  const { title, mainImage, author, publishedAt, metaText, categories, slug } =
     post![0];
 
   const date = dateConverter(publishedAt as string);
@@ -18,10 +21,7 @@ export const FeaturedPost = async () => {
   return (
     <>
       <section className="flex flex-col items-center justify-center max-sm:mx-10 sm:mx-20 py-2 mb-10">
-        <Link
-          href={`/blogs/${slug?.current}`}
-          className="overflow-hidden"
-        >
+        <Link href={`/blogs/${slug?.current}`} className="overflow-hidden">
           <Image
             src={urlFor(mainImage!.asset!._ref).url() as string}
             alt={mainImage!.alt!}
@@ -42,7 +42,9 @@ export const FeaturedPost = async () => {
         >
           {title}
         </Link>
-        <p className="text-gray-500 dark:text-gray-300 text-center line-clamp-3">{metaText}</p>
+        <p className="text-gray-500 dark:text-gray-300 text-center line-clamp-3">
+          {metaText}
+        </p>
         <p className="text-gray-500 dark:text-gray-300 my-4 text-sm font-semibold">
           By{" "}
           <Link

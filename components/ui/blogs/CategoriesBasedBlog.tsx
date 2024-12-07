@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { client } from "@/sanity/lib/client";
 import { CATEGORIES_BASED_BLOG_QUERY } from "@/sanity/lib/queries";
 import { SlugSorter, Slug } from "@functions/slugSorter";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { twMerger } from "@/assets/functions/tailwindMerger";
+import { sanityFetch } from "@/sanity/lib/live";
 
 export const CategoriesBasedBlog = async ({
   slug = "health",
@@ -15,8 +15,11 @@ export const CategoriesBasedBlog = async ({
   flexProps: "flex-row" | "flex-row-reverse";
   twClasses?: string;
 }) => {
-  const blogs = await client.fetch(CATEGORIES_BASED_BLOG_QUERY, {
-    categoryId: SlugSorter(slug),
+  const { data: blogs } = await sanityFetch({
+    query: CATEGORIES_BASED_BLOG_QUERY,
+    params: {
+      categoryId: SlugSorter(slug),
+    },
   });
 
   const firstBlogDetails = {
@@ -42,7 +45,8 @@ export const CategoriesBasedBlog = async ({
       <section
         className={twMerger(
           "flex flex-row justify-around items-center max-sm:mx-10 sm:mx-20 py-10 border-b-2 border-primary-600",
-          flexProps,twClasses
+          flexProps,
+          twClasses
         )}
       >
         <div className="grid isolate group overflow-hidden place-items-center">
