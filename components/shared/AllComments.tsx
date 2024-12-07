@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar } from "@nextui-org/react";
 import { dateConverter } from "@functions/dateConverter";
 
