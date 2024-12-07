@@ -2,6 +2,6 @@
 
 import { CircularProgress } from "@nextui-org/react";
 
-export function Loader() {
-  return <CircularProgress aria-label="Loading..." />;
+export function Loader({ size = "sm" }: { size?: "sm" | "md" | "lg" }) {
+  return <CircularProgress aria-label="Loading..." size={size} />;
 }

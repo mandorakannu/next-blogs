@@ -4,6 +4,7 @@ import { client } from "@/sanity/lib/client";
 import { UNIQUE_POST_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
+import { CommentBox } from "@shared_ui/CommentBox";
 
 const fetchPost = async (slug: string) => {
   const post = await client.fetch(
@@ -31,6 +32,7 @@ export default async function UniqueBlog({ params }: Props) {
           className="rounded-lg mt-8 border"
         />
         <PortableText value={post!.body!} />
+        <CommentBox postId={post!._id} />
       </div>
     </>
   );
