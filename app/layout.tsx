@@ -7,6 +7,7 @@ import { ScrollToTop } from "@ui/ScrollToTop";
 import { Footer } from "@shared_ui/Footer";
 import { ChakraProvider } from "@shared_ui/providers/ChakraProvider";
 import { Analytics } from "@vercel/analytics/next";
+import { NextProgressBar } from "@ui/ProgressBar";
 
 const font = Karla({
   weight: ["200", "300", "400", "500", "600", "700"],
@@ -129,6 +130,7 @@ export default function RootLayout({
             <Footer />
           </NextUIProvider>
           <Analytics />
+          <NextProgressBar />
         </body>
       </html>
     </ChakraProvider>
