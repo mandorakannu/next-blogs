@@ -19,7 +19,7 @@ export const FeaturedPost = async () => {
   const date = dateConverter(publishedAt as string);
 
   return (
-    <> <hr className="h-1 bg-primary-500 mb-5" />
+    <>
       <section className="flex flex-row max-sm:flex-col items-center justify-center max-sm:mx-10 sm:mx-20 py-2 mb-10">
         <Link href={`/blogs/${slug?.current}`} className="overflow-hidden">
           <ImageUI
